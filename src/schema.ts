@@ -1,5 +1,10 @@
 import { defineRelations, sql } from "drizzle-orm";
-import { integer, sqliteTable, text, primaryKey } from "drizzle-orm/sqlite-core";
+import {
+  integer,
+  sqliteTable,
+  text,
+  primaryKey,
+} from "drizzle-orm/sqlite-core";
 
 export const files = sqliteTable("files", {
   id: text("id").primaryKey(),

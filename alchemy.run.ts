@@ -7,7 +7,6 @@ import { ChunkQueue } from "./src/queue.ts";
 import * as Drizzle from "alchemy/Drizzle/Providers";
 import * as Layer from "effect/Layer";
 
-
 export default Alchemy.Stack(
   "Fragment",
   {
@@ -22,7 +21,7 @@ export default Alchemy.Stack(
     return {
       bucketName: bucket.bucketName,
       dbName: db.databaseName,
-      queueName: queue.queueName
+      queueName: queue.queueName,
     };
   }),
 );
