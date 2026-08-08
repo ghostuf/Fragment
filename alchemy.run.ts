@@ -4,7 +4,7 @@ import * as Effect from "effect/Effect";
 import { Bucket } from "./src/bucket.ts";
 import { Database } from "./src/database.ts";
 import { ChunkQueue } from "./src/queue.ts";
-import * as Drizzle from "alchemy/Drizzle";
+import * as Drizzle from "alchemy/Drizzle/Providers";
 import * as Layer from "effect/Layer";
 
 
