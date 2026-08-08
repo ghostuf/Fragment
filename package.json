@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "drizzle-kit": "^1.0.0-rc.4"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -12,7 +13,9 @@
   "dependencies": {
     "@effect/platform-bun": "4.0.0-beta.102",
     "@effect/platform-node": "4.0.0-beta.102",
+    "@effect/sql-d1": "^0.50.0",
     "alchemy": "2.0.0-beta.70",
+    "drizzle-orm": "^1.0.0-rc.4",
     "effect": "4.0.0-beta.102"
   }
 }

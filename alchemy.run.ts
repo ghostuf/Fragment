@@ -4,12 +4,14 @@ import * as Effect from "effect/Effect";
 import { Bucket } from "./src/bucket.ts";
 import { Database } from "./src/database.ts";
 import { ChunkQueue } from "./src/queue.ts";
+import * as Drizzle from "alchemy/Drizzle";
+import * as Layer from "effect/Layer";
 
 
 export default Alchemy.Stack(
   "Fragment",
   {
-    providers: Cloudflare.providers(),
+    providers: Layer.mergeAll(Cloudflare.providers(), Drizzle.providers()),
     state: Cloudflare.state(),
   },
   Effect.gen(function* () {
