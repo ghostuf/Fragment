@@ -10,6 +10,7 @@ export const files = sqliteTable("files", {
   id: text("id").primaryKey(),
   filename: text("filename").notNull(),
   size: integer("size").notNull(),
+  totalChunks: integer("total_chunks").notNull(),
   status: text("status", { enum: ["pending", "complete", "error"] })
     .notNull()
     .default("pending"),

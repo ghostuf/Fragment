@@ -1,0 +1,1 @@
+ALTER TABLE `files` ADD `total_chunks` integer NOT NULL;
