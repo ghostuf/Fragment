@@ -2,14 +2,12 @@ import * as Cloudflare from "alchemy/Cloudflare";
 import * as Drizzle from "alchemy/Drizzle/Schema";
 import * as Effect from "effect/Effect";
 
-// Drizzle.Schema regenerates migration SQL from schema.ts on every deploy;
-// its `out` feeds directly into D1's migrationsDir, so there's no separate
-// `drizzle-kit generate` step to remember to run before deploying.
-
+// regenerates migration SQL from schema.ts on every deploy, no drizzle-kit
+// generate step needed
 export const Database = Effect.gen(function* () {
   const schema = yield* Drizzle.Schema("app-schema", {
-    schema: "./src/schema.ts", // root relative
-    out: "./migrations", // same here
+    schema: "./src/schema.ts",
+    out: "./migrations",
     dialect: "sqlite",
   });
 

@@ -6,6 +6,8 @@ import { Database } from "./src/database.ts";
 import { ChunkQueue, UploadTimeoutQueue } from "./src/queue.ts";
 import * as Drizzle from "alchemy/Drizzle/Providers";
 import * as Layer from "effect/Layer";
+import Producer from "./src/producer.ts";
+import Consumer from "./src/consumer.ts";
 
 export default Alchemy.Stack(
   "Fragment",
@@ -18,12 +20,21 @@ export default Alchemy.Stack(
     const db = yield* Database;
     const chunkQueue = yield* ChunkQueue;
     const uploadTimeoutQueue = yield* UploadTimeoutQueue;
+    const producer = yield* Producer;
+    const consumer = yield* Consumer;
+
+    const website = yield* Cloudflare.Website.Vite("Website", {
+      rootDir: "web",
+      assets: { notFoundHandling: "single-page-application" },
+    });
 
     return {
       bucketName: bucket.bucketName,
       dbName: db.databaseName,
       chunkQueueName: chunkQueue.queueName,
       uploadTimeoutQueueName: uploadTimeoutQueue.queueName,
+      producerUrl: producer.url,
+      websiteUrl: website.url,
     };
   }),
 );

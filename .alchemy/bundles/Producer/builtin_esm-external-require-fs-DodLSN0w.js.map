@@ -1,0 +1,1 @@
+{"version":3,"file":"builtin_esm-external-require-fs-DodLSN0w.js","names":["m"],"sources":["../../../builtin:esm-external-require-path","../../../builtin:esm-external-require-fs"],"sourcesContent":["import * as m from 'path';module.exports = m.default;","import * as m from 'fs';module.exports = m.default;"],"mappings":"gHAA0B,EAAO,QAAUA,EAAE,wBCArB,EAAO,QAAU,EAAE"}

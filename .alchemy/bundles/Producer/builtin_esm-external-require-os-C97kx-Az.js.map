@@ -1,0 +1,1 @@
+{"version":3,"file":"builtin_esm-external-require-os-C97kx-Az.js","names":[],"sources":["../../../builtin:esm-external-require-os"],"sourcesContent":["import * as m from 'os';module.exports = m.default;"],"mappings":"yFAAwB,EAAO,QAAU,EAAE"}
