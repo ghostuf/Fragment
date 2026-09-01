@@ -2,6 +2,9 @@
 
 Chunked upload/download storage on Cloudflare, loosely modeled on GFS's chunk-based storage. Files are split into fixed-size chunks and stored as independent objects, with a separate metadata layer tracking where each chunk landed and whether the whole file is complete. No resumable uploads, no R2 multipart each chunk is just its own object, matching GFS's framing over faking a real distributed filesystem.
 
+
+Check out my [Live Deployment](https://fragment-website-dev-ghostuf-7bh3agma6pez7obq.srijan102dahal.workers.dev/)
+
 ## Architecture
 
 - **Producer** (Worker) = HTTP API. Initiates uploads, mints one presigned R2 PUT URL per chunk, lists/downloads/deletes files.
@@ -49,7 +52,6 @@ There is one more queue, the chunk queue. from my research i found that the r2 e
 ### Failure Handled
 
 Abandoned uploads. Delayed queue message checks files.status later. If still pending, deletes the R2 chunks + D1 row. No operations if already complete. This is also safe against duplicate delivery.
-
 
 ## Running it
 
