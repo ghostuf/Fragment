@@ -1,5 +1,4 @@
-export const API_URL =
-  "https://fragment-producer-dev-ghostuf-fffm76bstmjaksbq.srijan102dahal.workers.dev";
+export const API_URL = import.meta.env.VITE_API_URL;
 
 // keep in sync with src/producer.ts
 const CHUNK_SIZE = 5 * 1024 * 1024;
